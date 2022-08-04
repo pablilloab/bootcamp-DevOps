@@ -22,3 +22,5 @@ for i in ${!segundasMod[@]}; do
     ${segundasMod[$i]}"archiv"$num_archiv".txt"    
 done
 
+
+
