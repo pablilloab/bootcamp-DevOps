@@ -6,25 +6,21 @@ do
     chmod a-rwx "archiv"$i.txt
 done
 
-#Primer modificaciones
-chmod u=rwx,go= archiv1.txt
-chmod u=rw,go= archiv2.txt
-chmod a=rwx archiv3.txt
-chmod u=rwx,g=rw,o=r archiv4.txt
-chmod u=rwx,g=r,o= archiv5.txt
-chmod u=rx,g=rw,o=r archiv6.txt
-chmod u=r,g=,o=x archiv7.txt
-chmod u=rw,g=r,o=r archiv8.txt
-chmod u=rw,g=rw,o=r archiv9.txt
+primerasMod=("chmod u=rwx,go= " "chmod u=rw,go= " "chmod a=rwx " "chmod u=rwx,g=rw,o=r " "chmod u=rwx,g=r,o= " "chmod u=rx,g=rw,o=r " "chmod u=r,g=,o=x " "chmod u=rw,g=r,o=r " "chmod u=rw,g=rw,o=r ")
 
 
-#Segundas modificaciones
-chmod o+r archiv1.txt
-chmod u-w archiv2.txt	
-chmod a-x archiv3.txt
-chmod go-r archiv4.txt
-chmod g-r,o+wx archiv5.txt	
-chmod u+w,o-r archiv6.txt
-chmod u+w,g+x,o-x,o+w archiv7.txt
-chmod u-rw,g-r archiv8.txt
-chmod u+rw,g+rw,o+r archiv9.txt
+for i in ${!primerasMod[@]}; do
+    num_archiv=$((num_archiv + 1))
+    ${primerasMod[$i]}"archiv"$num_archiv".txt"    
+done
+
+segundasMod=("chmod o+r " "chmod u-w " "chmod a-x " "chmod go-r " "chmod g-r,o+wx " "chmod u+w,o-r " "chmod u+w,g+x,o-x,o+w " "chmod u-rw,g-r " "chmod u+rw,g+rw,o+r ") 
+
+num_archiv=0
+for i in ${!segundasMod[@]}; do
+    num_archiv=$((num_archiv + 1))
+    ${segundasMod[$i]}"archiv"$num_archiv".txt"    
+done
+
+
+
